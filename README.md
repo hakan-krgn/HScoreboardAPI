@@ -26,23 +26,23 @@ scoreBoard.open();
 
 final int[] m = {0};
 new BukkitRunnable() {
-@Override
-public void run() {
-scoreBoard.setLine(15, "1blue: " + m[0]);
-scoreBoard.setLine(14, "2blue: " + m[0]);
-scoreBoard.setLine(13, "3blue: " + m[0]);
-scoreBoard.setLine(12, "4blue: " + m[0]);
-scoreBoard.setLine(11, "5blue: " + m[0]);
-scoreBoard.setLine(10, "6blue: " + m[0]);
-scoreBoard.setLine(9, "7blue: " + m[0]);
-scoreBoard.setLine(8, "8blue: " + m[0]);
-scoreBoard.setLine(7, "9blue: " + m[0]);
-scoreBoard.setLine(6, "10blue: " + m[0]);
-scoreBoard.setLine(5, "11blue: " + m[0]);
-scoreBoard.setLine(4, "12blue: " + m[0]);
-scoreBoard.setLine(3, "13blue: " + m[0]);
-scoreBoard.setLine(2, "14blue: " + m[0]);
-scoreBoard.setLine(1, "15blue: " + m[0]);
-m[0]++;
-}
+    @Override
+    public void run() {
+        scoreBoard.setLine(15, "1blue: " + m[0]);
+        scoreBoard.setLine(14, "2blue: " + m[0]);
+        scoreBoard.setLine(13, "3blue: " + m[0]);
+        scoreBoard.setLine(12, "4blue: " + m[0]);
+        scoreBoard.setLine(11, "5blue: " + m[0]);
+        scoreBoard.setLine(10, "6blue: " + m[0]);
+        scoreBoard.setLine(9, "7blue: " + m[0]);
+        scoreBoard.setLine(8, "8blue: " + m[0]);
+        scoreBoard.setLine(7, "9blue: " + m[0]);
+        scoreBoard.setLine(6, "10blue: " + m[0]);
+        scoreBoard.setLine(5, "11blue: " + m[0]);
+        scoreBoard.setLine(4, "12blue: " + m[0]);
+        scoreBoard.setLine(3, "13blue: " + m[0]);
+        scoreBoard.setLine(2, "14blue: " + m[0]);
+        scoreBoard.setLine(1, "15blue: " + m[0]);
+        m[0]++;
+    }
 }.runTaskTimer(instance, 20 * 5, 1);```
