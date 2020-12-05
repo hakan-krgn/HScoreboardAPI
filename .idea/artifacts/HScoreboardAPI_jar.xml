@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="HScoreboardAPI:jar">
+    <output-path>$PROJECT_DIR$/../../..</output-path>
+    <root id="archive" name="HScoreboardAPI.jar">
+      <element id="module-output" name="HScoreboardAPI" />
+    </root>
+  </artifact>
+</component>
