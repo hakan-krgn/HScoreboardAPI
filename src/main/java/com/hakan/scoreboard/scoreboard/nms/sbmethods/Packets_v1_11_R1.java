@@ -1,13 +1,13 @@
-package com.hakan.scoreboard.sb.nms.sbmethods;
+package com.hakan.scoreboard.scoreboard.nms.sbmethods;
 
-import com.hakan.scoreboard.sb.nms.SetupNMS;
-import net.minecraft.server.v1_10_R1.*;
-import org.bukkit.craftbukkit.v1_10_R1.entity.CraftPlayer;
+import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
+import net.minecraft.server.v1_11_R1.*;
+import org.bukkit.craftbukkit.v1_11_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import static com.hakan.scoreboard.utils.FieldUtil.setField;
 
-public class Packets_v1_10_R1 implements SetupNMS.ScoreboardPacket {
+public class Packets_v1_11_R1 implements SetupNMS.ScoreboardPacket {
 
     public void createObjectivePacket(Player player, int mode, String displayName) {
         PacketPlayOutScoreboardObjective packet = new PacketPlayOutScoreboardObjective();

@@ -1,6 +1,6 @@
 package com.hakan.scoreboard;
 
-import com.hakan.scoreboard.sb.nms.SetupNMS;
+import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 

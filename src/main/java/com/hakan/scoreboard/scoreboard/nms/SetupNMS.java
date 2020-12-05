@@ -1,6 +1,6 @@
-package com.hakan.scoreboard.sb.nms;
+package com.hakan.scoreboard.scoreboard.nms;
 
-import com.hakan.scoreboard.sb.nms.sbmethods.*;
+import com.hakan.scoreboard.scoreboard.nms.sbmethods.*;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 

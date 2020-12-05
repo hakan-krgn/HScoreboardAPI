@@ -1,7 +1,7 @@
-package com.hakan.scoreboard.sb;
+package com.hakan.scoreboard.scoreboard;
 
 import com.hakan.scoreboard.Main;
-import com.hakan.scoreboard.sb.nms.SetupNMS;
+import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
 import net.minecraft.server.v1_8_R3.PacketPlayOutScoreboardScore;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;

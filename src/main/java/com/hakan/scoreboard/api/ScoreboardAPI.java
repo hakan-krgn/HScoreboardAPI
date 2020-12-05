@@ -1,7 +1,7 @@
 package com.hakan.scoreboard.api;
 
 import com.hakan.scoreboard.Main;
-import com.hakan.scoreboard.sb.ScoreBoard;
+import com.hakan.scoreboard.scoreboard.ScoreBoard;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 

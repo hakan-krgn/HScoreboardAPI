@@ -1,13 +1,13 @@
-package com.hakan.scoreboard.sb.nms.sbmethods;
+package com.hakan.scoreboard.scoreboard.nms.sbmethods;
 
-import com.hakan.scoreboard.sb.nms.SetupNMS;
-import net.minecraft.server.v1_16_R2.*;
-import org.bukkit.craftbukkit.v1_16_R2.entity.CraftPlayer;
+import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
+import net.minecraft.server.v1_9_R2.*;
+import org.bukkit.craftbukkit.v1_9_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import static com.hakan.scoreboard.utils.FieldUtil.setField;
 
-public class Packets_v1_16_R2 implements SetupNMS.ScoreboardPacket {
+public class Packets_v1_9_R2 implements SetupNMS.ScoreboardPacket {
 
     public void createObjectivePacket(Player player, int mode, String displayName) {
         PacketPlayOutScoreboardObjective packet = new PacketPlayOutScoreboardObjective();
@@ -27,8 +27,11 @@ public class Packets_v1_16_R2 implements SetupNMS.ScoreboardPacket {
         sendPacket(player, packet);
     }
 
-    public void createScorePacket(Player player, String line, int score, String scoreboardAction) {
-        PacketPlayOutScoreboardScore packet = new PacketPlayOutScoreboardScore(ScoreboardServer.Action.valueOf(scoreboardAction), player.getName(), line, 0);
+    public void createScorePacket(Player player, String line, int score, String enumScoreboardAction) {
+        PacketPlayOutScoreboardScore packet = new PacketPlayOutScoreboardScore(line);
+        setField(packet, "b", player.getName());
+        setField(packet, "c", score);
+        setField(packet, "d", PacketPlayOutScoreboardScore.EnumScoreboardAction.valueOf(enumScoreboardAction));
         sendPacket(player, packet);
     }
 
