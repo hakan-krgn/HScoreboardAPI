@@ -1,9 +1,7 @@
 package com.hakan.scoreboard.scoreboard;
 
-import com.hakan.scoreboard.Main;
 import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
 import net.minecraft.server.v1_8_R3.PacketPlayOutScoreboardScore;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.Map;
@@ -23,33 +21,31 @@ public class ScoreBoard {
     }
 
     public void open() {
-        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> {
-            Player player = getPlayer();
-            if (!player.isOnline()) return;
+        Player player = getPlayer();
+        if (!player.isOnline()) return;
 
-            scoreboardPacket.createObjectivePacket(getPlayer(), 1, null);
-            scoreboardPacket.createObjectivePacket(player, 0, getTitle());
-            scoreboardPacket.createObjectiveSlotPacket(player);
-            for (Map.Entry<Integer, String> entry : getLines().entrySet()) {
-                scoreboardPacket.createScorePacket(player, entry.getValue(), entry.getKey(), PacketPlayOutScoreboardScore.EnumScoreboardAction.CHANGE.name());
-            }
-        });
+        close();
+        scoreboardPacket.createObjectivePacket(player, 0, getTitle());
+        scoreboardPacket.createObjectiveSlotPacket(player);
+        for (Map.Entry<Integer, String> entry : getLines().entrySet()) {
+            scoreboardPacket.createScorePacket(player, entry.getValue(), entry.getKey(), PacketPlayOutScoreboardScore.EnumScoreboardAction.CHANGE.name());
+        }
     }
 
     public void close() {
-        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> scoreboardPacket.createObjectivePacket(getPlayer(), 1, null));
+        scoreboardPacket.createObjectivePacket(getPlayer(), 1, null);
     }
 
     public void setLine(int index, String line) {
         removeLine(index);
         this.lines.put(index, line);
-        Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> scoreboardPacket.createScorePacket(getPlayer(), line, index, PacketPlayOutScoreboardScore.EnumScoreboardAction.CHANGE.name()));
+        scoreboardPacket.createScorePacket(getPlayer(), line, index, PacketPlayOutScoreboardScore.EnumScoreboardAction.CHANGE.name());
     }
 
     public void removeLine(int index) {
         String indexLine = getLines().get(index);
         if (indexLine != null) {
-            Bukkit.getScheduler().runTaskAsynchronously(Main.getInstance(), () -> scoreboardPacket.createScorePacket(getPlayer(), indexLine, index, PacketPlayOutScoreboardScore.EnumScoreboardAction.REMOVE.name()));
+            scoreboardPacket.createScorePacket(getPlayer(), indexLine, index, PacketPlayOutScoreboardScore.EnumScoreboardAction.REMOVE.name());
         }
         this.lines.remove(index);
     }
