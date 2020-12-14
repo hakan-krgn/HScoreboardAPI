@@ -1,6 +1,7 @@
 package com.hakan.scoreboard;
 
 import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +15,10 @@ public class Main extends JavaPlugin {
 
     public static void setup(Plugin plugin) {
         instance = plugin;
+        if (instance != null) {
+            Bukkit.getLogger().warning("HScoreboardAPI already registered.");
+            return;
+        }
         new SetupNMS().setup();
     }
 
