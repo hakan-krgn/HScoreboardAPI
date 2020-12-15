@@ -1,7 +1,6 @@
 package com.hakan.scoreboard.scoreboard;
 
 import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
-import net.minecraft.server.v1_8_R3.PacketPlayOutScoreboardScore;
 import org.bukkit.entity.Player;
 
 import java.util.Map;
@@ -28,7 +27,7 @@ public class ScoreBoard {
         scoreboardPacket.createObjectivePacket(player, 0, getTitle());
         scoreboardPacket.createObjectiveSlotPacket(player);
         for (Map.Entry<Integer, String> entry : getLines().entrySet()) {
-            scoreboardPacket.createScorePacket(player, entry.getValue(), entry.getKey(), PacketPlayOutScoreboardScore.EnumScoreboardAction.CHANGE.name());
+            scoreboardPacket.createScorePacket(player, entry.getValue(), entry.getKey(), "CHANGE");
         }
     }
 
@@ -39,13 +38,13 @@ public class ScoreBoard {
     public void setLine(int index, String line) {
         removeLine(index);
         this.lines.put(index, line);
-        scoreboardPacket.createScorePacket(getPlayer(), line, index, PacketPlayOutScoreboardScore.EnumScoreboardAction.CHANGE.name());
+        scoreboardPacket.createScorePacket(getPlayer(), line, index, "CHANGE");
     }
 
     public void removeLine(int index) {
         String indexLine = getLines().get(index);
         if (indexLine != null) {
-            scoreboardPacket.createScorePacket(getPlayer(), indexLine, index, PacketPlayOutScoreboardScore.EnumScoreboardAction.REMOVE.name());
+            scoreboardPacket.createScorePacket(getPlayer(), indexLine, index, "REMOVE");
         }
         this.lines.remove(index);
     }
