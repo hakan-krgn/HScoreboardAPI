@@ -14,11 +14,11 @@ public class Main extends JavaPlugin {
     }
 
     public static void setup(Plugin plugin) {
-        instance = plugin;
         if (instance != null) {
             Bukkit.getLogger().warning("HScoreboardAPI already registered.");
             return;
         }
+        instance = plugin;
         new SetupNMS().setup();
     }
 

@@ -10,9 +10,27 @@ public class SetupNMS {
 
     public void setup() {
         String serverVersion = Bukkit.getServer().getClass().getName().split("\\.")[3];
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
+        System.out.println("sadsda");
         switch (serverVersion) {
             case "v1_8_R3":
                 scoreboardPacket = new Packets_v1_8_R3();
+                System.out.println(scoreboardPacket + "");
                 break;
             case "v1_9_R1":
                 scoreboardPacket = new Packets_v1_9_R1();
