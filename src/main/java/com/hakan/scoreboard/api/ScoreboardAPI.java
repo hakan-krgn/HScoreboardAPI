@@ -2,6 +2,7 @@ package com.hakan.scoreboard.api;
 
 import com.hakan.scoreboard.Main;
 import com.hakan.scoreboard.scoreboard.ScoreBoard;
+import com.hakan.scoreboard.utils.Variables;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
@@ -12,6 +13,10 @@ public class ScoreboardAPI {
 
     public static void setup(Plugin plugin) {
         Main.setup(plugin);
+    }
+
+    public static ScoreBoard getScoreboard(Player player) {
+        return Variables.playerScoreBoard.get(player);
     }
 
     public static ScoreboardManager getManager() {

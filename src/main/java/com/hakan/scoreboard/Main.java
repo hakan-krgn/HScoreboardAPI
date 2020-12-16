@@ -1,5 +1,6 @@
 package com.hakan.scoreboard;
 
+import com.hakan.scoreboard.listeners.ConnectionListeners;
 import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
@@ -20,6 +21,7 @@ public class Main extends JavaPlugin {
         }
         instance = plugin;
         new SetupNMS().setup();
+        Bukkit.getPluginManager().registerEvents(new ConnectionListeners(), plugin);
     }
 
     @Override

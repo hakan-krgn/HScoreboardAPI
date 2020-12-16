@@ -1,6 +1,7 @@
 package com.hakan.scoreboard.scoreboard;
 
 import com.hakan.scoreboard.scoreboard.nms.SetupNMS;
+import com.hakan.scoreboard.utils.Variables;
 import org.bukkit.entity.Player;
 
 import java.util.Map;
@@ -29,10 +30,12 @@ public class ScoreBoard {
         for (Map.Entry<Integer, String> entry : getLines().entrySet()) {
             scoreboardPacket.createScorePacket(player, entry.getValue(), entry.getKey(), "CHANGE");
         }
+        Variables.playerScoreBoard.put(getPlayer(), this);
     }
 
     public void close() {
         scoreboardPacket.createObjectivePacket(getPlayer(), 1, null);
+        Variables.playerScoreBoard.remove(getPlayer());
     }
 
     public void setLine(int index, String line) {
